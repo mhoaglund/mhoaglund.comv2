@@ -1,0 +1,11 @@
+{
+  "name": "mhoaglund.com",
+  "version": "1.0.0",
+  "description": "personal site v2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maxwell.hoaglund@gmail.com",
+  "license": "ISC"
+}
