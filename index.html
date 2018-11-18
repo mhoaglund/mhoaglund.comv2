@@ -11,6 +11,9 @@
         <link href="css\layout.css" rel="stylesheet"/>
         <link href="css\detail.css" rel="stylesheet"/>
         <link href="css\color.css" rel="stylesheet"/>
+        <script id="project">
+            <section></section>
+        </script>
     </head>
     <body class="base">
         <section class="central-column">
@@ -26,6 +29,21 @@
                 <div class="item">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius necessitatibus sapiente nesciunt soluta quisquam libero est nostrum! Ab rerum necessitatibus, at, illo architecto reprehenderit illum atque, dolore totam corporis dolor.</div>
             </section>
         </div>
+        </section>
+        <section class="project">
+            <p>Title: <span class="title"></span></p>
+            <p class="thesis"></p>
+            <p class="materials"></p>
+            <section class="components grid progressive" id="components">
+                {?majorcomponents}
+                    {#majorcomponents}
+                      <div class="object-main draggable ui-widget-content" id="{id}" style="background-image: url(https://s3.amazonaws.com/shallows/images/{image}_sm.png)">
+                        <span>{current}</span><br/>
+                        <p class="object-name" style="display: none;">{name}</p>
+                      </div>
+                    {/majorcomponents}
+                {/majorcomponents}
+            </section>
         </section>
     </body>
 </html>

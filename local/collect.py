@@ -1,0 +1,1 @@
+#TODO: iterate over a folder structure with project stuff in it, and output json.
