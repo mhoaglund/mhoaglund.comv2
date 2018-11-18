@@ -1,7 +1,17 @@
 {
     "title":"The Shallows",
     "thesis":"",
-    "majorcomponents":[],
+    "majorcomponents":[
+        {
+            "name":"thing1",
+            "attachments":{
+                "schametic":"",
+                "image":"",
+                "details":[],
+                "artifacts":[]
+            }
+        }
+    ],
     "themes":[],
     "materials":[]
 }
