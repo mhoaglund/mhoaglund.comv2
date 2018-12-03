@@ -10,14 +10,16 @@
         <link rel="stylesheet" href="css\ibm-type.min.css"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js" type="text/javascript"></script>
-        <script src="scripts/dust-full.min.js"></script>
-        <script src="scripts/dust-helpers.min.js"></script>
-        <script src="scripts/compose.js"></script>
+        <script src="scripts/handlebars-latest.js"></script>
+        
         <link href="css\layout.css" rel="stylesheet"/>
         <link href="css\detail.css" rel="stylesheet"/>
         <link href="css\color.css" rel="stylesheet"/>
-        <script id="project">
-            <section></section>
+        <script id="project" type="text/x-handlebars-template">
+            <section class="project-overall">
+                <h1>{{title}}</h1>
+                <p>{{body}}</p>
+            </section>
         </script>
     </head>
     <body class="base">
@@ -40,31 +42,32 @@
             <p class="thesis"></p>
             <p class="materials"></p>
             <section class="components grid progressive" id="components">
-                {?majorcomponents}
-                    {#majorcomponents}
-                      <div class="component-host progressive" id="{id}" style="background-image: url(https://s3.amazonaws.com/mhoaglundwork/images/{image}_sm.png)">
-                        <p class="object-name">{name}</p>
-                        <p class="desc">{description}</p>
-                        {?details}
+                {{#if majorcomponents}}
+                    {{#each majorcomponents}}
+                        <div class="component-host progressive" id="{id}" style="background-image: url(https://s3.amazonaws.com/mhoaglundwork/images/{image}_sm.png)">
+                        <p class="object-name">{{this.name}}</p>
+                        <p class="desc">{{this.description}}</p>
+                        {{#if details}}
                         <section class="detail-host">
-                            {#details}
+                            {{#each details}}
                                 <!--Each detail-->
                                 <div class="detail"></div>
-                            {/details}
+                            {{/each}}
                         </section>
-                        {/details}
-                        {?artifacts}
+                        {{/if}}
+                        {{#if artifacts}}
                         <section class="artifact-host">
-                            {#artifacts}
+                            {{#each artifacts}}
                                 <!--Each artifact-->
                                 <div class="artifact"></div>
-                            {/artifacts}
+                            {{/each}}
                         </section>
-                        {/artifacts}
-                      </div>
-                    {/majorcomponents}
-                {/majorcomponents}
+                        {{/if}}
+                        </div>
+                    {{/each}}
+                {{/if}}
             </section>
         </section>
+        <script src="scripts/compose.js"></script>
     </body>
 </html>

@@ -1,3 +1,7 @@
 //TODO: flesh out
-var _co_template = $('#project').html();
-var cocompiled = dust.compile(_co_template, 'PROJ');
+var source   = document.getElementById("project").innerHTML;
+var template = Handlebars.compile(source);
+var context = {title: "My New Post", body: "This is my first post!"};
+var html    = template(context);
+
+$('body').append(html)
